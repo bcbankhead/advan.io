@@ -46,40 +46,47 @@ p {
   color: #77F;
 }
 .mainText {
-  padding-top:0px;
-  width:80%;
+  position:relative;
+  padding-top:10px;
+  width:70%;
   font-family: 'Yantramanav', sans-serif;
 }
 
 .break {
   padding-top:10px;
-}
-#div1, #div2, #div3, #div4 {
-  position:absolute;
-  top:0px;
-  left:0px;
-  width:3000px;
-  height:100%;
-  z-index:-1;
+  border:0px solid black;
 }
 
-#div1 {
+.screenBox {
+  position:relative;
+  display:inline-block;
+  float:right;
+}
+
+.screenshot {
+  width: 70%;
+  max-width: 200px;
+  max-height:200px;
+  margin: 0 0 10px 10px;
+}
+
+.screenBox:hover .zoom {
   opacity: 1;
-  background-color: #bf4728;
-}
-#div2 {
-  opacity: 0;
-  background-color: #bf4728;
-}
-#div3 {
-  opacity: 0;
-  background-color: #bf4728;
-}
-#div4 {
-  opacity: 0;
-  background-color: #bf4728;
 }
 
+.zoom {
+  position:absolute;
+  width:400px;
+  height:280px;
+  border:1px solid black;
+  top:-120px;
+  left:-200px;
+  opacity:0;
+  z-index:990;
+  transition: all .3s ease;
+  pointer-events: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
 #stripe {
   position:absolute;
   padding:30px;
@@ -112,6 +119,7 @@ p {
   color:#FFF;
   padding:0px;
   height:90px;
+
 }
 .io {
   color:#F00;
@@ -152,7 +160,7 @@ p {
 .option {
   cursor:pointer;
   position: relative;
-  width:250px;
+  width:150px;
   height:27px;
   padding:5px;
   font-size:16px;
@@ -211,19 +219,18 @@ p {
   position:absolute;
   top:0px;
   left:0px;
-  width:25px;
+  width:20px;
   height:450px;
   border:0px solid black;
   border-left:1px solid black;
   border-right:1px solid black;
   transition: all 1s ease;
-
 }
 
 .itemContent {
   position:absolute;
   top:0px;
-  left:25px;
+  left:20px;
   height:450px;
   width:100%;
   padding:25px;
@@ -232,24 +239,9 @@ p {
   transition: all .3s ease;
 }
 
-#checkMyB {
-  background-color: #D0307D;
-  z-index: 9999;
-}
-
-#wordexB {
-  background-color: #FFF1D0;
-  z-index: 9998;
-}
-
 #homeB {
   background-color: #06AED5;
-  z-index: 9998;
-}
-
-#typoB {
-  background-color: #F0C808;
-  z-index: 9998;
+  z-index: 9999;
 }
 
 #meB {
@@ -257,9 +249,25 @@ p {
   z-index: 9998;
 }
 
+#checkMyB {
+  background-color: #D0307D;
+  z-index: 9997;
+}
+
+#wordexB {
+  background-color: #FFF1D0;
+  z-index: 9996;
+}
+
+
+#typoB {
+  background-color: #F0C808;
+  z-index: 9995;
+}
+
 #resumeB {
   background-color: #086788;
-  z-index: 9998;
+  z-index: 9994;
 }
 
 #backgroundDiv {
@@ -314,6 +322,7 @@ p {
   width:80%;
   height:300px;
   overflow-y: scroll;
+  overflow-x: hidden;
   margin-bottom:20px;
 }
 
@@ -336,4 +345,23 @@ p {
 .sub {
   opacity: 0;
   transition: all .3s ease
+}
+
+.preview {
+  display: inline-block;
+  height:200px;
+  transition: all .3s ease;
+}
+.preview:hover {
+  opacity:.5;
+}
+
+.preview:hover + a{
+  color: #FFF;
+}
+
+.resume {
+  float:left;
+  margin-left:10px;
+  margin-top:20px;
 }

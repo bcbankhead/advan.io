@@ -27,6 +27,16 @@ var initialPos = function () {
   checkWindow.style.right = offset3 - checkWindow.clientWidth+"px"
   wordexWindow.style.right = offset4 - wordexWindow.clientWidth+"px"
   typoWindow.style.right = offset5 - typoWindow.clientWidth+"px"
+  resumeWindow.style.right = offset6 - typoWindow.clientWidth+"px"
+}
+
+var hideChildren = function () {
+  homeWindow.children[1].children[0].style.opacity = 0;
+  meWindow.children[1].children[0].style.opacity = 0;
+  checkWindow.children[1].children[0].style.opacity = 0;
+  wordexWindow.children[1].children[0].style.opacity = 0;
+  typoWindow.children[1].children[0].style.opacity = 0;
+  resumeWindow.children[1].children[0].style.opacity = 0;
 }
 
 var fade = function (elem,visibility) {
@@ -58,18 +68,22 @@ var home = document.getElementById('home'),
     meWindow = document.getElementById('meWindow')
     bodyBackground = document.body
 
-var offset1 = 25,
-    offset2 = 50,
-    offset3 = 75,
-    offset4 = 100,
-    offset5 = 125
+var offset1 = 20,
+    offset2 = 40,
+    offset3 = 60,
+    offset4 = 80,
+    offset5 = 100,
+    offset6 = 120
+
     bodyBackground.style.backgroundColor = "#BF4728"
 
 initialPos()
 
 setTimeout(function () {
   homeWindow.style.right = 0+"px"
-  homeWindow.children[1].children[0].style.opacity = 1;
+  setTimeout(function () {
+    homeWindow.children[1].children[0].style.opacity = 1;
+  },1000)
   bodyBackground.style.backgroundColor = "#BF4728"
 },500)
 
@@ -101,6 +115,8 @@ var turnOffAll = function (type) {
     wordexWindow.children[1].children[0].style.opacity = 0;
   typoWindow.style.right = offset5 - typoWindow.clientWidth+"px"
     typoWindow.children[1].children[0].style.opacity = 0;
+  resumeWindow.style.right = offset6 - resumeWindow.clientWidth+"px"
+    resumeWindow.children[1].children[0].style.opacity = 0;
   }
 }
 
@@ -110,6 +126,7 @@ var activePage = function (type,color) {
     element.style.right = 0+"px"
     if(showing != type){
       setTimeout(function () {
+        hideChildren()
         element.children[1].children[0].style.opacity = 1;
         showing = type;
       },1000)
@@ -176,13 +193,18 @@ typo.addEventListener('mouseenter', function () {
   setTimeout(function () {
     activePage('typoWindow',"#D7DD57")
     var iconTimer = setTimeout(function () {
-      switcher(iconsArray,iconsArray)
+      var activeIcons = ['mongo','css3','html5','jade','js','node']
+      switcher(activeIcons,iconsArray)
     })
   }, 0)
 })
 
-
-//
-// check.addEventListener('mouseout', function () {
-//   fade(checkWindow,'fadeOut')
-// })
+resume.addEventListener('mouseenter', function () {
+  turnOffAll('resumeWindow')
+  setTimeout(function () {
+    activePage('resumeWindow',"#BF4728")
+    var iconTimer = setTimeout(function () {
+      switcher(iconsArray,iconsArray)
+    })
+  }, 0)
+})

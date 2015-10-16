@@ -4,4 +4,23 @@
     .sub
       .titleBar
         .wordexTitle WordExplorer
-      .text Check My Style
+      .text 
+        p _
+        p Project URL: 
+          a(href="typo.advan.io") typo.advan.io
+        p Type: First Project
+        p Duration: ~180 hours
+        p.tech APIs, d3.js, JS, Mongo, Jade, JQuery
+        .break Brief: 
+          .mainText 
+            .screenBox
+              img.screenshot(src="/images/screenshots/wordex.png" nopin="nopin")
+              .zoom(style="background: url('/images/screenshots/wordex.png'); background-size:cover;")
+            |Word Explorer is a fun way to explore a thesaurus to learn new vocabulary. It employs an advanced d3.js Chord-Graph 
+            |to show relationships between a root word, it's part of speech, and it's related words either synonyms or antonyms.
+          p _
+          p Synopsis:
+          .mainText This project was the first major project undertaken at approximately 7 weeks into the course. Features of note 
+            |include the use of the d3.js Chord-graph, wordlist generation and subsequent key-event based word list filtering.
+          .mainText The word suggestion box employs Twitter Typeahead to help the user find the right word from a 60k point dictionary
+            |api calls are made to multiple sources to gather the most options for definitions and related words.

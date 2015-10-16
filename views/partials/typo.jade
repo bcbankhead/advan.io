@@ -4,4 +4,29 @@
     .sub
       .titleBar
         .wordexTitle typographer
-      .text Check My Style
+      .text 
+        p _
+        p Project URL: 
+          a(href="typo.advan.io") typo.advan.io
+        p Type: Mid-term
+        p Duration: ~100 hours
+        p.tech JS, Mongo, Jade, JQuery
+        .break Brief: 
+          .mainText 
+            .screenBox
+              img.screenshot(src="/images/screenshots/typographer.png" nopin="nopin")
+              .zoom(style="background: url('/images/screenshots/typographer.png'); background-size:cover;")
+            |Basic C.R.U.D. app backed up by novel features such as "likes" and asynchronous user commenting system.
+          p _
+          p Synopsis:
+          .mainText The most notable features of this project are the use of AJAX calls to make async writes to the database
+            |without having page refreshes or otherwise interrupting the user experience - yet still have nearly realtime database
+            |updates. 
+          .mainText The like button, as well as the user comment system employ these techniques. The comment system has the
+            |additional feature that once a comment is submitted, it is shown immediately, however does not become editable until 
+            |the ajax call completes. 
+          .mainText I experimented with more CSS techniques in working on this project. This is also a good frame of reference
+            |to see progress at approximately 10 weeks in to the course! The impetus behind this project was the need to design a functional application in a relatively short period 
+            |of time.
+
+        
