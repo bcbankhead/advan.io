@@ -106,7 +106,7 @@ p {
   clear:both;
 }
 .advan, .io {
-  float:left;
+  display:inline-block;
   font-family: impact;
   font-size: 85px;
   color:#FFF;
@@ -118,13 +118,21 @@ p {
 }
 
 .me {
-  clear:both;
+  color: #FFF;
+  height:35px;
+  opacity:.75;
+  font-family: impact;
+  font-size:30px;
+}
+
+.wido {
   color: #FFF;
   height:20px;
   font-weight: normal;
   font-family: arial;
   font-size:14px;
 }
+
 .icons {
   float:right;
   position:relative;
@@ -145,11 +153,13 @@ p {
   cursor:pointer;
   position: relative;
   width:250px;
+  height:27px;
   padding:5px;
   font-size:16px;
-  margin-top:1px;
   padding-left:30px;
   transition: all .5s ease;
+  margin-top:1px;
+  border:0px solid black;
 }
 
 .option:hover{
@@ -165,12 +175,26 @@ p {
   left:0px;
   width:25px;
   height: 25px;
-  padding:5px;
   font-size:16px;
-  margin-top:1px;
   background-color: rgba(255,255,255,.25);
   transition: all .5s ease;
 }
+
+.optionSquareBlue {
+  position: absolute;
+  top:0px;
+  left:0px;
+  width:25px;
+  height: 25px;
+  font-size:16px;
+  background-color: rgba(255,255,255,.25);
+  border:1px solid white;
+  transition: all .5s ease;
+}
+.option:hover .optionSquareBlue {
+  background-color: rgba(120,150,255,1);
+}
+
 
 .page {
   position:absolute;
@@ -193,6 +217,7 @@ p {
   border-left:1px solid black;
   border-right:1px solid black;
   transition: all 1s ease;
+
 }
 
 .itemContent {
@@ -202,23 +227,38 @@ p {
   height:450px;
   width:100%;
   padding:25px;
-  opacity: 0;
+  opacity: 1;
   background-color: rgba(255, 255, 255, 0.15);
   transition: all .3s ease;
 }
 
 #checkMyB {
-  background-color: #D9D;
+  background-color: #D0307D;
   z-index: 9999;
 }
 
 #wordexB {
-  background-color: #09D;
+  background-color: #FFF1D0;
   z-index: 9998;
 }
 
 #homeB {
-  background-color: #F99;
+  background-color: #06AED5;
+  z-index: 9998;
+}
+
+#typoB {
+  background-color: #F0C808;
+  z-index: 9998;
+}
+
+#meB {
+  background-color: #086788;
+  z-index: 9998;
+}
+
+#resumeB {
+  background-color: #086788;
   z-index: 9998;
 }
 
@@ -277,8 +317,23 @@ p {
   margin-bottom:20px;
 }
 
+.textHome {
+  border-top:1px dotted white;
+  width:80%;
+  height:300px;
+  margin-bottom:20px;
+}
+
 .divider {
   background-color: #777;
+  margin-top:1px;
+  margin-bottom:3px;
   width:200px;
   font-size: 10px;
+
+}
+
+.sub {
+  opacity: 0;
+  transition: all .3s ease
 }

@@ -1,3 +1,15 @@
+window.onresize = function() {
+  var stripe = document.getElementById('stripe')
+      stripe.style.width = window.innerWidth+"px"
+      var winHalfHeight = (window.innerHeight/2) - 225
+      stripe.style.top = winHalfHeight+"px"
+
+      initialPos()
+
+      background.style.width = window.innerWidth+"px"
+      background.style.height = window.innerHeight+"px"
+};
+
 var stripe = document.getElementById('stripe')
     stripe.style.width = window.innerWidth+"px"
     var winHalfHeight = (window.innerHeight/2) - 225
@@ -7,6 +19,15 @@ var background = document.getElementById('backgroundDiv')
     background.style.width = window.innerWidth+"px"
     background.style.height = window.innerHeight+"px"
 
+var showing = "homeWindow"
+
+var initialPos = function () {
+  homeWindow.style.right = offset1 - checkWindow.clientWidth+"px"
+  meWindow.style.right = offset2 - typoWindow.clientWidth+"px"
+  checkWindow.style.right = offset3 - checkWindow.clientWidth+"px"
+  wordexWindow.style.right = offset4 - wordexWindow.clientWidth+"px"
+  typoWindow.style.right = offset5 - typoWindow.clientWidth+"px"
+}
 
 var fade = function (elem,visibility) {
   var width = window.innerWidth
@@ -21,170 +42,145 @@ var fade = function (elem,visibility) {
     elem.style.right = 720 - width+"px"
     var trans = slideDistance + (width - 565)+"px"
   }
-
-  // elem.style["transform"] = "translate("+trans+",0)"
-  // elem.style["webkit-transform"] = "translate("+trans+",0)"
-  // elem.style["o-transform"] = "translate("+trans+",0)"
-  // elem.style["moz-transform"] = "translate("+trans+",0)"
 }
 
 var home = document.getElementById('home'),
     check = document.getElementById('check'),
     wordex = document.getElementById('wordex'),
+    typo = document.getElementById('typo'),
+    me = document.getElementById('me'),
     resume = document.getElementById('resume'),
     row = document.getElementById('mainRow'),
     checkWindow = document.getElementById('checkWindow'),
     wordexWindow = document.getElementById('wordexWindow'),
-    homeWindow = document.getElementById('homeWindow')
+    homeWindow = document.getElementById('homeWindow'),
+    typoWindow = document.getElementById('typoWindow'),
+    meWindow = document.getElementById('meWindow')
     bodyBackground = document.body
 
 var offset1 = 25,
     offset2 = 50,
     offset3 = 75,
-    offset4 = 100
+    offset4 = 100,
+    offset5 = 125
     bodyBackground.style.backgroundColor = "#BF4728"
-    homeWindow.style.right = offset1 - checkWindow.clientWidth+"px"
-    checkWindow.style.right = offset2 - checkWindow.clientWidth+"px"
-    wordexWindow.style.right = offset3 - wordexWindow.clientWidth+"px"
 
-    var iconsArray = [
-        'sql',
-        'postgres',
-        'mongo',
-        'atom',
-        'chrome',
-        'css3',
-        'html5',
-        'gulp',
-        'jade',
-        'js',
-        'angular',
-        'node',
-        'npm'
-      ]
+initialPos()
+
 setTimeout(function () {
   homeWindow.style.right = 0+"px"
-  homeWindow.children[1].style.opacity = 1;
+  homeWindow.children[1].children[0].style.opacity = 1;
   bodyBackground.style.backgroundColor = "#BF4728"
 },500)
-    window.onresize = function() {
-      var stripe = document.getElementById('stripe')
-          stripe.style.width = window.innerWidth+"px"
-          var winHalfHeight = (window.innerHeight/2) - 225
-          stripe.style.top = winHalfHeight+"px"
 
-          homeWindow.style.right = offset1 - checkWindow.clientWidth+"px"
-          checkWindow.style.right = offset2 - checkWindow.clientWidth+"px"
-          wordexWindow.style.right = offset3 - wordexWindow.clientWidth+"px"
+var iconsArray = [
+    'sql',
+    'postgres',
+    'mongo',
+    'atom',
+    'chrome',
+    'css3',
+    'html5',
+    'gulp',
+    'jade',
+    'js',
+    'angular',
+    'node',
+    'npm'
+  ]
 
-          background.style.width = window.innerWidth+"px"
-          background.style.height = window.innerHeight+"px"
-    };
+var turnOffAll = function (type) {
+  if(showing != type){
+  homeWindow.style.right = offset1 - checkWindow.clientWidth+"px"
+    homeWindow.children[1].children[0].style.opacity = 0;
+  meWindow.style.right = offset2 - meWindow.clientWidth+"px"
+    meWindow.children[1].children[0].style.opacity = 0;
+  checkWindow.style.right = offset3 - checkWindow.clientWidth+"px"
+    checkWindow.children[1].children[0].style.opacity = 0;
+  wordexWindow.style.right = offset4 - wordexWindow.clientWidth+"px"
+    wordexWindow.children[1].children[0].style.opacity = 0;
+  typoWindow.style.right = offset5 - typoWindow.clientWidth+"px"
+    typoWindow.children[1].children[0].style.opacity = 0;
+  }
+}
 
+var activePage = function (type,color) {
+  console.log("ahsdjksajdhka",type, showing);
+  var element = document.getElementById(type)
+    element.style.right = 0+"px"
+    if(showing != type){
+      setTimeout(function () {
+        element.children[1].children[0].style.opacity = 1;
+        showing = type;
+      },1000)
+    }
 
-// var eventNames = ['check', 'wordex'];
-// var checkIcons = [ 'mongo','chrome','css3','html5','gulp','jade','js','angular','node']
-// var wordIcons = [ 'mongo','css3','html5','jade','js','node']
-//
-// for (var i = 0; i < eventNames.length; i++) {
-//   addEvents(eventNames[i],checkIcons,iconsArray)
-// }
+    bodyBackground.style.backgroundColor = color
+}
+
+var switcher = function (activeIcons, iconsArray) {
+  for (var i = 0; i < iconsArray.length; i++) {
+    var thisIcon = document.getElementById(iconsArray[i])
+    thisIcon.style.opacity = 0.15
+  }
+  for (var i = 0; i < activeIcons.length; i++) {
+    var thisIcon = document.getElementById(activeIcons[i])
+    thisIcon.style.opacity = 1
+  }
+}
+
+home.addEventListener('mouseenter', function () {
+  turnOffAll('homeWindow')
+  setTimeout(function () {
+    activePage('homeWindow',"#BF4728")
+    var iconTimer = setTimeout(function () {
+      switcher(iconsArray,iconsArray)
+    })
+  }, 0)
+})
+
+me.addEventListener('mouseenter', function () {
+  turnOffAll('meWindow')
+  setTimeout(function () {
+    activePage('meWindow',"#BF4728")
+    var iconTimer = setTimeout(function () {
+      switcher(iconsArray,iconsArray)
+    })
+  }, 0)
+})
 
 check.addEventListener('mouseenter', function () {
-
-  homeWindow.style.right = offset1 - checkWindow.clientWidth+"px"
-    homeWindow.children[1].style.opacity = 0;
-  checkWindow.style.right = offset2 - checkWindow.clientWidth+"px"
-    checkWindow.children[1].style.opacity = 0;
-  wordexWindow.style.right = offset3 - wordexWindow.clientWidth+"px"
-    wordexWindow.children[1].style.opacity = 0;
-
+  turnOffAll('checkWindow')
   setTimeout(function () {
-    bodyBackground.style.backgroundColor = "#A773A7"
-    checkWindow.style.right = 0+"px"
-    checkWindow.children[1].style.opacity = 1;
+    activePage('checkWindow',"#A773A7")
     var iconTimer = setTimeout(function () {
-      var activeIcons = [
-          'mongo',
-          'chrome',
-          'css3',
-          'html5',
-          'gulp',
-          'jade',
-          'js',
-          'angular',
-          'node'
-        ]
-        for (var i = 0; i < iconsArray.length; i++) {
-          var thisIcon = document.getElementById(iconsArray[i])
-          thisIcon.style.opacity = 0.15
-        }
-        for (var i = 0; i < activeIcons.length; i++) {
-          var thisIcon = document.getElementById(activeIcons[i])
-          thisIcon.style.opacity = 1
-        }
+      var activeIcons = ['mongo','chrome','css3','html5','gulp','jade','js','angular','node']
+      switcher(activeIcons,iconsArray)
     })
   }, 0)
 })
 
 wordex.addEventListener('mouseenter', function () {
-
-  homeWindow.style.right = offset1 - checkWindow.clientWidth+"px"
-    homeWindow.children[1].style.opacity = 0;
-  checkWindow.style.right = offset2 - checkWindow.clientWidth+"px"
-    checkWindow.children[1].style.opacity = 0;
-  wordexWindow.style.right = offset3 - wordexWindow.clientWidth+"px"
-    wordexWindow.children[1].style.opacity = 0;
-
+  turnOffAll('wordexWindow')
   setTimeout(function () {
-    wordexWindow.style.right = 0+"px"
-    wordexWindow.children[1].style.opacity = 1;
-    bodyBackground.style.backgroundColor = "#67A4BF"
+    activePage('wordexWindow',"#67A4BF")
     var iconTimer = setTimeout(function () {
-      var activeIcons = [
-          'mongo',
-          'css3',
-          'html5',
-          'jade',
-          'js',
-          'node'
-        ]
-        for (var i = 0; i < iconsArray.length; i++) {
-          var thisIcon = document.getElementById(iconsArray[i])
-          thisIcon.style.opacity = 0.15
-        }
-        for (var i = 0; i < activeIcons.length; i++) {
-          var thisIcon = document.getElementById(activeIcons[i])
-          thisIcon.style.opacity = 1
-        }
+      var activeIcons = ['mongo','css3','html5','jade','js','node']
+      switcher(activeIcons,iconsArray)
     })
   }, 0)
 })
 
-home.addEventListener('mouseenter', function () {
-  homeWindow.style.right = offset1 - checkWindow.clientWidth+"px"
-    homeWindow.children[1].style.opacity = 0;
-  checkWindow.style.right = offset2 - checkWindow.clientWidth+"px"
-    checkWindow.children[1].style.opacity = 0;
-  wordexWindow.style.right = offset3 - wordexWindow.clientWidth+"px"
-    wordexWindow.children[1].style.opacity = 0;
-
+typo.addEventListener('mouseenter', function () {
+  turnOffAll('typoWindow')
   setTimeout(function () {
-    homeWindow.style.right = 0+"px"
-    homeWindow.children[1].style.opacity = 1;
-    bodyBackground.style.backgroundColor = "#BF4728"
+    activePage('typoWindow',"#D7DD57")
     var iconTimer = setTimeout(function () {
-        for (var i = 0; i < iconsArray.length; i++) {
-          var thisIcon = document.getElementById(iconsArray[i])
-          thisIcon.style.opacity = 0.15
-        }
-        for (var i = 0; i < iconsArray.length; i++) {
-          var thisIcon = document.getElementById(iconsArray[i])
-          thisIcon.style.opacity = 1
-        }
+      switcher(iconsArray,iconsArray)
     })
   }, 0)
 })
+
 
 //
 // check.addEventListener('mouseout', function () {
