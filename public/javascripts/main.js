@@ -23,11 +23,11 @@ var showing = "homeWindow"
 
 var initialPos = function () {
   homeWindow.style.right = offset1 - checkWindow.clientWidth+"px"
-  meWindow.style.right = offset2 - typoWindow.clientWidth+"px"
+  meWindow.style.right = offset2 - meWindow.clientWidth+"px"
   checkWindow.style.right = offset3 - checkWindow.clientWidth+"px"
   wordexWindow.style.right = offset4 - wordexWindow.clientWidth+"px"
   typoWindow.style.right = offset5 - typoWindow.clientWidth+"px"
-  resumeWindow.style.right = offset6 - typoWindow.clientWidth+"px"
+  resumeWindow.style.right = offset6 - resumeWindow.clientWidth+"px"
 }
 
 var hideChildren = function () {
@@ -66,6 +66,8 @@ var home = document.getElementById('home'),
     homeWindow = document.getElementById('homeWindow'),
     typoWindow = document.getElementById('typoWindow'),
     meWindow = document.getElementById('meWindow')
+    resumeWindow = document.getElementById('resumeWindow')
+
     bodyBackground = document.body
 
 var offset1 = 20,
