@@ -193,7 +193,7 @@ wordex.addEventListener('mouseenter', function () {
 typo.addEventListener('mouseenter', function () {
   turnOffAll('typoWindow')
   setTimeout(function () {
-    activePage('typoWindow',"#D7DD57")
+    activePage('typoWindow',"#7EAE9F")
     var iconTimer = setTimeout(function () {
       var activeIcons = ['mongo','css3','html5','jade','js','node']
       switcher(activeIcons,iconsArray)
@@ -204,7 +204,7 @@ typo.addEventListener('mouseenter', function () {
 resume.addEventListener('mouseenter', function () {
   turnOffAll('resumeWindow')
   setTimeout(function () {
-    activePage('resumeWindow',"#BF4728")
+    activePage('resumeWindow',"#666677")
     var iconTimer = setTimeout(function () {
       switcher(iconsArray,iconsArray)
     })
