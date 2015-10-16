@@ -64,10 +64,11 @@ p {
 }
 
 .screenshot {
+  float:left;
   width: 70%;
   max-width: 200px;
   max-height:200px;
-  margin: 0 0 10px 10px;
+  margin:10px;
 }
 
 .screenBox:hover .zoom {
@@ -241,33 +242,33 @@ p {
 
 #homeB {
   background-color: #06AED5;
-  z-index: 9999;
+  z-index: 9994;
 }
 
 #meB {
   background-color: #086788;
-  z-index: 9998;
+  z-index: 9995;
 }
 
 #checkMyB {
   background-color: #D0307D;
-  z-index: 9997;
+  z-index: 9996;
 }
 
 #wordexB {
   background-color: #FFF1D0;
-  z-index: 9996;
+  z-index: 9997;
 }
 
 
 #typoB {
   background-color: #F0C808;
-  z-index: 9995;
+  z-index: 9998;
 }
 
 #resumeB {
   background-color: #086788;
-  z-index: 9994;
+  z-index: 9999;
 }
 
 #backgroundDiv {

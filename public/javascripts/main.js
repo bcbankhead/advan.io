@@ -71,11 +71,11 @@ var home = document.getElementById('home'),
     bodyBackground = document.body
 
 var offset1 = 20,
-    offset2 = 40,
-    offset3 = 60,
-    offset4 = 80,
-    offset5 = 100,
-    offset6 = 120
+    offset2 = 39,
+    offset3 = 58,
+    offset4 = 77,
+    offset5 = 96,
+    offset6 = 115
 
     bodyBackground.style.backgroundColor = "#BF4728"
 
