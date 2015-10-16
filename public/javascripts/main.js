@@ -5,7 +5,8 @@ window.onresize = function() {
       stripe.style.top = winHalfHeight+"px"
 
       initialPos()
-
+      switcher(iconsArray,iconsArray)
+      
       background.style.width = window.innerWidth+"px"
       background.style.height = window.innerHeight+"px"
 };
