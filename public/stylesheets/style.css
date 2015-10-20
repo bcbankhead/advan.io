@@ -409,6 +409,12 @@ p {
   margin-top:20px;
 }
 
+.col {
+  float:left;
+  margin-left:10px;
+  margin-top:0px;
+}
+
 .envelope {
   display:inline-block;
   font-size: 20px;
