@@ -167,6 +167,7 @@ p {
 }
 
 .iconImg {
+  cursor: crosshair;
   float:left;
   position:relative;
   margin-left:15px;
