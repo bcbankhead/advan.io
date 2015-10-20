@@ -305,7 +305,7 @@ p {
   border:0px solid black;
   background-image: url("/images/advanlogo.png");
   background-repeat: no-repeat;
-  background-position: 110% 110%;
+  background-position: 100% 100%;
 }
 .titleBar {
   display: block;

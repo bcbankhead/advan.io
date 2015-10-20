@@ -6,9 +6,9 @@ window.onresize = function() {
 
       initialPos()
       switcher(iconsArray,iconsArray)
-      
-      background.style.width = window.innerWidth+"px"
-      background.style.height = window.innerHeight+"px"
+
+      background.style.left = (window.innerWidth/2)+200+"px"
+      background.style.top = (window.innerHeight/2)-100+"px"
 };
 
 var stripe = document.getElementById('stripe')
@@ -17,8 +17,12 @@ var stripe = document.getElementById('stripe')
     stripe.style.top = winHalfHeight+"px"
 
 var background = document.getElementById('backgroundDiv')
-    background.style.width = window.innerWidth+"px"
-    background.style.height = window.innerHeight+"px"
+    background.style.width = "600px"
+    background.style.height = "600px"
+    background.style.left = (window.innerWidth/2)+200+"px"
+    background.style.top = (window.innerHeight/2)-100+"px"
+
+    console.log(background);
 
 var showing = "homeWindow"
 
