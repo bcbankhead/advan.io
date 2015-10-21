@@ -5,6 +5,7 @@ body {
   background-color: #BF4728;
   margin: 0px;
   overflow-y:hidden;
+  overflow-x:hidden;
   font-weight: normal;
   transition: all .7s ease;
 }
