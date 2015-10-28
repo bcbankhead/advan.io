@@ -73,16 +73,19 @@ p {
 }
 
 .screenBox:hover .zoom {
+  width:400px;
+  height:280px;
+
   opacity: 1;
 }
 
 .zoom {
   position:absolute;
-  width:400px;
-  height:280px;
+  width:40px;
+  height:28px;
   border:1px solid black;
-  top:-120px;
-  left:-200px;
+  bottom:-50px;
+  right:0px;
   opacity:0;
   z-index:990;
   transition: all .3s ease;
